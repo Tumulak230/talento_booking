@@ -3,9 +3,10 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image'; // Import Image component
 
 export default function Register() {
-  const [role, setRole] = useState(''); // kung unsay imo ge select na role sa pag register
+  const [role, setRole] = useState(''); // Role selection state
   const router = useRouter();
 
   const handleSubmit = (event) => {
@@ -27,6 +28,11 @@ export default function Register() {
       </Head>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+          {/* Logo */}
+          <div className="flex justify-center mb-6">
+            <Image src="/logotalentos.png" alt="Logo" width={100} height={100} />
+          </div>
+
           <h1 className="text-2xl font-bold mb-6 text-center">Create an Account</h1>
           <form onSubmit={handleSubmit}>
             <input
