@@ -1,6 +1,7 @@
 "use client";
 
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function TalentDashboard() {
@@ -12,21 +13,31 @@ export default function TalentDashboard() {
         <div className="flex h-screen bg-gray-100">
             <aside className="w-64 bg-gray-800 text-white">
                 <div className="p-4">
-                    <div className="text-2xl font-bold mb-6">TALENTO</div>
+                    <div className="flex items-center mb-6">
+                        {/* logo */}
+                        <Image 
+                            src="/logotalentos.png" 
+                            alt="TALENTO Logo"
+                            width={40} 
+                            height={40} 
+                            className="mr-2"
+                        />
+                        <div className="text-2xl font-bold">TALENTO</div>
+                    </div>
                     <nav className="space-y-4">
-                        <Link href="/talentdashboard" className="flex items-center space-x-2 p-2 rounded bg-gray-700">
+                        <Link href="/dashboard/talentdashboard" className="flex items-center space-x-2 p-2 rounded bg-gray-700 hover:bg-gray-600">
                             <span>Dashboard</span>
                         </Link>
-                        <Link href="/profile" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
-                            <span>Profile</span>
+                        <Link href="/dashboard/talentprofile" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
+                            <span>Portfolio</span>
                         </Link>
-                        <Link href="/messages" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
+                        <Link href="/dashboard/messages" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
                             <span>Messages</span>
                         </Link>
-                        <Link href="/booking" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
+                        <Link href="/dashboard/booking" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
                             <span>Booking</span>
                         </Link>
-                        <Link href="/logout" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
+                        <Link href="/dashboard/logout" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
                             <span>Log Out</span>
                         </Link>
                     </nav>
@@ -37,7 +48,7 @@ export default function TalentDashboard() {
                     <h1 className="text-3xl font-bold">Dashboard</h1>
                     <div>
                         <button className="relative focus:outline-none">
-                            <span className="material-icons text-gray-500 text-3xl">HIRING REQUEST</span>
+                            <span className="material-icons text-gray-500 text-3xl">HIRING_REQUEST</span>
                             <span className="absolute top-0 right-0 block h-2 w-2 bg-red-500 rounded-full"></span>
                         </button>
                     </div>
@@ -45,7 +56,7 @@ export default function TalentDashboard() {
 
                 <section>
                     <div className="space-y-6">
-                        {/* Card 1 */}
+                        {/* 1 */}
                         <div className="bg-white shadow rounded-lg p-4 flex">
                             <div className="w-16 h-16 flex-shrink-0">
                                 <div className="h-full w-full bg-gray-300 rounded-full flex items-center justify-center text-2xl font-bold">K</div>
@@ -54,7 +65,7 @@ export default function TalentDashboard() {
                                 <h2 className="text-xl font-bold">Karl M.</h2>
                                 <p className="text-sm text-gray-500">June 27, 2024</p>
                                 <p className="mt-2 text-gray-700">
-                                    Looking for multi-talented performer that can sing and dance for my son birthday.
+                                    Looking for multi-talented performer that can sing and dance for my son’s birthday.
                                 </p>
                                 <div className="mt-4 space-y-2">
                                     <p><strong>Event:</strong> Birthday</p>
@@ -75,7 +86,7 @@ export default function TalentDashboard() {
                             </div>
                         </div>
 
-                        {/* Card 2 */}
+                        {/* 2 */}
                         <div className="bg-white shadow rounded-lg p-4 flex">
                             <div className="w-16 h-16 flex-shrink-0">
                                 <div className="h-full w-full bg-gray-300 rounded-full flex items-center justify-center text-2xl font-bold">N</div>

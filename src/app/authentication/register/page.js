@@ -1,12 +1,12 @@
-"use client"; // Ensure this is a Client Component
+"use client"; 
 
 import Head from 'next/head';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image'; // Import Image component
+import Image from 'next/image'; 
 
 export default function Register() {
-  const [role, setRole] = useState(''); // Role selection state
+  const [role, setRole] = useState(''); // Role 
   const router = useRouter();
 
   const handleSubmit = (event) => {
@@ -28,7 +28,7 @@ export default function Register() {
       </Head>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-          {/* Logo */}
+          {/* logo */}
           <div className="flex justify-center mb-6">
             <Image src="/logotalentos.png" alt="Logo" width={100} height={100} />
           </div>

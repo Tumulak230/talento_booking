@@ -11,7 +11,7 @@ export default function ForgotPassword() {
 
   const handleForgotPassword = (e) => {
     e.preventDefault();
-    // Simulate email submission for password reset
+    
     setIsSubmitted(true);
   };
 
@@ -22,7 +22,7 @@ export default function ForgotPassword() {
       </Head>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
-          {/* Logo */}
+          {/* logo */}
           <div className="flex justify-center mb-6">
             <Image src="/logotalentos.png" alt="Logo" width={100} height={100} />
           </div>
