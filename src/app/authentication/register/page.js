@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'; 
+import { Button, TextField, Checkbox, FormControlLabel, Typography, Box } from '@mui/material';
 
 export default function Register() {
   const [role, setRole] = useState(''); // Role 
@@ -27,85 +28,99 @@ export default function Register() {
         <title>Create an Account</title>
       </Head>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-          {/* logo */}
-          <div className="flex justify-center mb-6">
+        <Box sx={{ bgcolor: 'white', p: 4, borderRadius: 2, boxShadow: 3, width: '100%', maxWidth: 400 }}>
+          {/* Logo */}
+          <div className="flex justify-center mb-4">
             <Image src="/logotalentos.png" alt="Logo" width={100} height={100} />
           </div>
 
-          <h1 className="text-2xl font-bold mb-6 text-center">Create an Account</h1>
+          <Typography variant="h5" component="h1" gutterBottom align="center">
+            Create an Account
+          </Typography>
           <form onSubmit={handleSubmit}>
-            <input
+            <TextField
               type="email"
               placeholder="Email address"
-              className="border border-gray-300 p-3 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+              variant="outlined"
+              fullWidth
               required
+              margin="normal"
             />
 
-            <div className="flex space-x-4 mb-4">
-              <input
+            <Box display="flex" gap={2}>
+              <TextField
                 type="text"
                 placeholder="First Name"
-                className="border border-gray-300 p-3 rounded w-1/2 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                variant="outlined"
                 required
+                fullWidth
               />
-              <input
+              <TextField
                 type="text"
                 placeholder="Last Name"
-                className="border border-gray-300 p-3 rounded w-1/2 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                variant="outlined"
                 required
+                fullWidth
               />
-            </div>
+            </Box>
 
-            <input
+            <TextField
               type="password"
               placeholder="Create Password"
-              className="border border-gray-300 p-3 rounded w-full mb-6 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+              variant="outlined"
+              fullWidth
               required
+              margin="normal"
             />
 
-            <div className="flex space-x-4 mb-6">
-              <button
-                type="button"
+            <Box display="flex" gap={2} mb={2}>
+              <Button
+                variant="contained"
+                color={role === 'client' ? 'grey' : 'default'}
                 onClick={() => setRole('client')}
-                className={`w-1/2 py-2 px-4 rounded-md text-white font-semibold ${role === 'client' ? 'bg-gray-800' : 'bg-gray-600'} hover:bg-gray-700`}
+                fullWidth
               >
                 CLIENT
-              </button>
-              <button
-                type="button"
+              </Button>
+              <Button
+                variant="contained"
+                color={role === 'talent' ? 'grey' : 'default'}
                 onClick={() => setRole('talent')}
-                className={`w-1/2 py-2 px-4 rounded-md text-white font-semibold ${role === 'talent' ? 'bg-gray-800' : 'bg-gray-600'} hover:bg-gray-700`}
+                fullWidth
               >
                 TALENT
-              </button>
-            </div>
+              </Button>
+            </Box>
 
-            <div className="flex items-center mb-6">
-              <input type="checkbox" className="mr-2" required />
-              <label className="text-sm">
-                I accept the{' '}
-                <a href="#" className="text-indigo-600 hover:underline">
-                  Terms & Conditions
-                </a>
-              </label>
-            </div>
+            <FormControlLabel
+              control={<Checkbox required />}
+              label={
+                <span>
+                  I accept the{' '}
+                  <a href="#" className="text-indigo-600 hover:underline">
+                    Terms & Conditions
+                  </a>
+                </span>
+              }
+            />
 
-            <button
+            <Button
               type="submit"
-              className="w-full py-3 bg-indigo-800 text-white font-semibold rounded-md hover:bg-indigo-700"
+              variant="contained"
+              sx={{ bgcolor: 'indigo.800', '&:hover': { bgcolor: 'indigo.700' } }}
+              fullWidth
             >
               Create account
-            </button>
+            </Button>
 
-            <p className="text-sm mt-4 text-center">
+            <Typography variant="body2" align="center" sx={{ mt: 2 }}>
               Already have an account?{' '}
               <a href="/authentication/login" className="text-indigo-600 hover:underline">
                 Log in now
               </a>
-            </p>
+            </Typography>
           </form>
-        </div>
+        </Box>
       </div>
     </>
   );

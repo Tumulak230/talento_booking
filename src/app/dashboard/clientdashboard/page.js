@@ -1,6 +1,7 @@
 "use client"; 
 
 import Head from 'next/head';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 
 export default function ClientDashboard() {
   return (
@@ -9,25 +10,21 @@ export default function ClientDashboard() {
         <title>TALENTO - Book a Talent for Your Event</title>
       </Head>
       <div>
-        <nav className="bg-white shadow">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div className="flex items-center">
-              <img src="/logotalentos.png" alt="Talento Logo" className="h-8 mr-3" />
-              <div className="text-xl font-bold">TALENTO</div>
-            </div>
-            <div className="space-x-6">
-              <a href="/" className="hover:text-gray-700">Home</a>
-              <a href="/category" className="hover:text-gray-700">Category</a>
-              <a href="#about" className="hover:text-gray-700">About Us</a>
-            </div>
-            <div className="flex items-center space-x-4">
-              <a href="/profile" className="hover:text-gray-700">Profile</a>
-              <a href="/authentication/login" className="hover:text-gray-700">Login</a>
-            </div>
-          </div>
-        </nav>
+        <AppBar position="static" sx={{ backgroundColor: '#303F9F' }}>
+          <Toolbar>
+            <img src="/logotalentos.png" alt="Talento Logo" className="h-8 mr-3" />
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              TALENTO
+            </Typography>
+            <Button color="inherit" href="/">Home</Button>
+            <Button color="inherit" href="/category">Category</Button>
+            <Button color="inherit" href="#about">About Us</Button>
+            <Button color="inherit" href="/profile">Profile</Button>
+            <Button color="inherit" href="/authentication/login">Logout</Button>
+          </Toolbar>
+        </AppBar>
 
-        {/*sa booking section */}
+        {/* Booking Section */}
         <section className="bg-gray-800 text-white py-16">
           <div className="container mx-auto text-center">
             <h1 className="text-4xl font-bold mb-6">Book a Talent for your Event!</h1>
@@ -43,7 +40,7 @@ export default function ClientDashboard() {
           </div>
         </section>
 
-        {/*sa category section */}
+        {/* Category Section */}
         <section className="container mx-auto py-16">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold">Browse By Category</h2>
@@ -76,7 +73,7 @@ export default function ClientDashboard() {
           </div>
         </section>
 
-        {/*sa about section */}
+        {/* About Section */}
         <section id="about" className="bg-gray-200 py-16">
           <div className="container mx-auto flex items-center">
             <div className="w-1/2 pr-8">

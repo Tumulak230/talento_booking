@@ -4,15 +4,19 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton, Divider, Typography, Button, Avatar } from '@mui/material';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton, Divider, Typography, Button, Avatar } from '@mui/material'; // Removed the duplicate IconButton
 import MenuIcon from '@mui/icons-material/Menu';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MessageIcon from '@mui/icons-material/Message';
 import PortfolioIcon from '@mui/icons-material/Work';
 import BookingIcon from '@mui/icons-material/Event';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import GroupIcon from '@mui/icons-material/Group';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function TalentDashboard() {
+export default function ManageUsers() {
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const toggleDrawer = (open) => (event) => {
@@ -25,7 +29,7 @@ export default function TalentDashboard() {
     return (
         <>
             <Head>
-                <title>TALENTO - Talent Dashboard</title>
+                <title>TALENTO - Manage Users</title>
             </Head>
             <div className="flex h-screen bg-gray-100">
                 {/* MUI Drawer with Indigo-700 background */}
@@ -62,31 +66,31 @@ export default function TalentDashboard() {
                         </div>
                         <Divider sx={{ backgroundColor: 'white' }} />
                         <List>
-                            <ListItem button component={Link} href="/dashboard/talentdashboard">
+                            <ListItem button component={Link} href="/admin/adminboard">
                                 <ListItemIcon>
                                     <DashboardIcon sx={{ color: 'white' }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Dashboard" />
                             </ListItem>
-                            <ListItem button component={Link} href="/dashboard/talentprofile">
+                            <ListItem button component={Link} href="/admin/adminreport">
                                 <ListItemIcon>
-                                    <PortfolioIcon sx={{ color: 'white' }} />
+                                    <AssessmentIcon sx={{ color: 'white' }} />
                                 </ListItemIcon>
-                                <ListItemText primary="Portfolio" />
+                                <ListItemText primary="Reports" />
                             </ListItem>
-                            <ListItem button component={Link} href="/dashboard/messages">
-                                <ListItemIcon>
-                                    <MessageIcon sx={{ color: 'white' }} />
-                                </ListItemIcon>
-                                <ListItemText primary="Messages" />
-                            </ListItem>
-                            <ListItem button component={Link} href="/dashboard/booking">
+                            <ListItem button component={Link} href="/admin/adminbook">
                                 <ListItemIcon>
                                     <BookingIcon sx={{ color: 'white' }} />
                                 </ListItemIcon>
-                                <ListItemText primary="Booking" />
+                                <ListItemText primary="Admin Bookings" />
                             </ListItem>
-                            <ListItem button component={Link} href="/dashboard/logout">
+                            <ListItem button component={Link} href="/admin/manageuser">
+                                <ListItemIcon>
+                                    <GroupIcon sx={{ color: 'white' }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Users" />
+                            </ListItem>
+                            <ListItem button component={Link} href="/admin/logout">
                                 <ListItemIcon>
                                     <LogoutIcon sx={{ color: 'white' }} />
                                 </ListItemIcon>
@@ -111,108 +115,87 @@ export default function TalentDashboard() {
                 <main className="flex-1 p-6 ml-16">
                     <header className="flex justify-between items-center mb-6">
                         <Typography variant="h4" className="font-bold">
-                            Dashboard
+                            Manage Users
                         </Typography>
-                        <Button variant="outlined" color="primary">
-                            Hiring Requests
-                        </Button>
                     </header>
 
                     <section>
                         <div className="space-y-6">
-                            {/* Hiring Request 1 */}
+                            {/* User 1 */}
                             <div className="bg-white shadow-md rounded-lg p-6 flex items-start hover:shadow-lg transition-shadow">
                                 <Avatar
-                                    alt="Nico Robin."
-                                    src="/robin.png" // Replace with the path to Karl's profile picture
+                                    alt="Nico Robin"
+                                    src="/robin.png" // Replace with the path to the user's profile picture
                                     sx={{ width: 56, height: 56 }}
                                     className="flex-shrink-0"
                                 />
                                 <div className="flex-1 ml-6">
                                     <Typography variant="h6" className="font-semibold">
-                                        Karl M.
+                                        Nico Robin
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" className="mt-1">
-                                        June 27, 2024
+                                        Artist ID: 001
                                     </Typography>
                                     <Typography variant="body1" className="mt-2">
-                                        Looking for multi-talented performer that can sing and dance for my son’s birthday.
+                                        Multi-talented artist skilled in singing and dancing.
                                     </Typography>
                                     <div className="mt-4">
                                         <Typography variant="body2">
-                                            <strong>Event:</strong> Birthday
+                                            <strong>Email:</strong> robin@example.com
                                         </Typography>
                                         <Typography variant="body2">
-                                            <strong>Location:</strong> Umapad, Mandaue City
+                                            <strong>Status:</strong> Active
                                         </Typography>
-                                        <Typography variant="body2">
-                                            <strong>Date and Time:</strong> August 5, 2024, Tuesday (5:00pm-6:00pm)
-                                        </Typography>
-                                        <div className="flex flex-wrap space-x-2 mt-4">
-                                            <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Singer</span>
-                                            <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Dancer</span>
-                                            <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Solo Singer</span>
-                                            <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Hip hop Dancer</span>
-                                            <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Male or Female</span>
-                                        </div>
                                     </div>
                                 </div>
                                 <div className="flex items-center space-x-4 ml-auto">
-                                    <Typography variant="body2" color="textSecondary">
-                                        2 Applied
-                                    </Typography>
-                                    <Button variant="contained" color="primary">
-                                        Apply
-                                    </Button>
+                                    <IconButton color="primary">
+                                        <EditIcon />
+                                    </IconButton>
+                                    <IconButton color="secondary">
+                                        <DeleteIcon />
+                                    </IconButton>
                                 </div>
                             </div>
 
-                            {/* Hiring Request 2 */}
+                            {/* User 2 */}
                             <div className="bg-white shadow-md rounded-lg p-6 flex items-start hover:shadow-lg transition-shadow">
                                 <Avatar
                                     alt="Nami"
-                                    src="/nami.png" // Replace with the path to Ninz's profile picture
+                                    src="/nami.png" // Replace with the path to the user's profile picture
                                     sx={{ width: 56, height: 56 }}
                                     className="flex-shrink-0"
                                 />
                                 <div className="flex-1 ml-6">
                                     <Typography variant="h6" className="font-semibold">
-                                        Ninz Garbo
+                                        Nami
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" className="mt-1">
-                                        August 1, 2024
+                                        Artist ID: 002
                                     </Typography>
                                     <Typography variant="body1" className="mt-2">
-                                        I am looking for a Singer and Guitarist for my resto bar. Please apply as soon as possible.
+                                        Skilled guitarist and musician.
                                     </Typography>
                                     <div className="mt-4">
                                         <Typography variant="body2">
-                                            <strong>Event:</strong> Resto Bar
+                                            <strong>Email:</strong> nami@example.com
                                         </Typography>
                                         <Typography variant="body2">
-                                            <strong>Location:</strong> Umapad, Mandaue City
+                                            <strong>Status:</strong> Inactive
                                         </Typography>
-                                        <Typography variant="body2">
-                                            <strong>Date and Time:</strong> August 3, 2024, Tuesday (5:00pm-6:00pm)
-                                        </Typography>
-                                        <div className="flex flex-wrap space-x-2 mt-4">
-                                            <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Singer</span>
-                                            <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Musician</span>
-                                            <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Solo Singer</span>
-                                            <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Guitarist</span>
-                                            <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Male or Female</span>
-                                        </div>
                                     </div>
                                 </div>
                                 <div className="flex items-center space-x-4 ml-auto">
-                                    <Typography variant="body2" color="textSecondary">
-                                        2 Applied
-                                    </Typography>
-                                    <Button variant="contained" color="primary">
-                                        Apply
-                                    </Button>
+                                    <IconButton color="primary">
+                                        <EditIcon />
+                                    </IconButton>
+                                    <IconButton color="secondary">
+                                        <DeleteIcon />
+                                    </IconButton>
                                 </div>
                             </div>
+
+                            {/* Additional users can be added in a similar format */}
                         </div>
                     </section>
                 </main>

@@ -1,119 +1,243 @@
+"use client";
+
+import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton, Divider, Typography, Button, Avatar, Grid } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import LogoutIcon from '@mui/icons-material/Logout';
+import BookingIcon from '@mui/icons-material/Event';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import GroupIcon from '@mui/icons-material/Group';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'; // Calendar CSS
 
 export default function Booking() {
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    const [date, setDate] = useState(new Date());
+
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+        setDrawerOpen(open);
+    };
+
+    const handleDateChange = (newDate) => {
+        setDate(newDate);
+    };
+
     return (
         <>
             <Head>
                 <title>TALENTO - Booking</title>
             </Head>
             <div className="flex h-screen bg-gray-100">
-                {/* sidebar */}
-                <aside className="w-64 bg-gray-800 text-white">
-                    <div className="p-4">
-                        <div className="flex items-center mb-6">
-                            {/* logo */}
-                            <Image 
-                                src="/logotalentos.png" 
-                                alt="TALENTO Logo"
-                                width={40} 
-                                height={40} 
-                                className="mr-2"
-                            />
-                            <div className="text-2xl font-bold">TALENTO</div>
-                        </div>
-                        <nav className="space-y-4">
-                            <Link href="/dashboard/talentdashboard" className="flex items-center space-x-2 p-2 rounded bg-gray-700 hover:bg-gray-600">
-                                <span>Dashboard</span>
-                            </Link>
-                            <Link href="/dashboard/talentprofile" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
-                                <span>Portfolio</span>
-                            </Link>
-                            <Link href="/dashboard/messages" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
-                                <span>Messages</span>
-                            </Link>
-                            <Link href="/dashboard/booking" className="flex items-center space-x-2 p-2 rounded bg-gray-700">
-                                <span>Booking</span>
-                            </Link>
-                            <Link href="/dashboard/logout" className="flex items-center space-x-2 p-2 rounded hover:bg-gray-700">
-                                <span>Log Out</span>
-                            </Link>
-                        </nav>
-                    </div>
-                </aside>
-
-                {/* Main */}
-                <main className="flex-1 p-6">
-                    <header className="mb-6">
-                        <h1 className="text-3xl font-bold">Booking</h1>
-                    </header>
-
-                    {/* sa pending */}
-                    <section className="mb-8">
-                        <h2 className="text-xl font-bold mb-4">Pending</h2>
-                        <div className="bg-white shadow rounded-lg p-4 flex justify-between items-center">
-                            <div className="flex items-center">
+                {/* MUI Drawer */}
+                <Drawer
+                    open={drawerOpen}
+                    onClose={toggleDrawer(false)}
+                    PaperProps={{
+                        sx: {
+                            backgroundColor: '#4338ca',
+                            color: 'white',
+                        }
+                    }}
+                >
+                    <div
+                        role="presentation"
+                        onClick={toggleDrawer(false)}
+                        onKeyDown={toggleDrawer(false)}
+                        style={{ width: 250 }}
+                    >
+                        <div className="p-4">
+                            <div className="flex items-center mb-6">
+                                {/* Logo */}
                                 <Image
-                                    src="/pikachu.png"
-                                    alt="Client Avatar"
+                                    src="/logotalentos.png"
+                                    alt="TALENTO Logo"
                                     width={40}
                                     height={40}
-                                    className="rounded-full"
+                                    className="mr-2"
                                 />
-                                <div className="ml-4">
-                                    <p className="font-semibold">Pikachu</p>
-                                    <p className="text-gray-500 text-sm">Paknaan, Mandaue City</p>
-                                    <p className="text-gray-500 text-sm">Wedding Event</p>
-                                    <p className="text-gray-500 text-sm">July 20, 2024 @5:00pm-9:00pm</p>
-                                </div>
-                            </div>
-                            <div className="space-x-2">
-                                <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Accept</button>
-                                <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Decline</button>
+                                <Typography variant="h6" className="font-bold">
+                                    TALENTO
+                                </Typography>
                             </div>
                         </div>
-                    </section>
+                        <Divider sx={{ backgroundColor: 'white' }} />
+                        <List>
+                            <ListItem button component={Link} href="/dashboard/talentdashboard">
+                                <ListItemIcon>
+                                    <DashboardIcon sx={{ color: 'white' }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Dashboard" />
+                            </ListItem>
+                            <ListItem button component={Link} href="/dashboard/talentprofile">
+                                <ListItemIcon>
+                                    <AssessmentIcon sx={{ color: 'white' }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Profile" />
+                            </ListItem>
+                            <ListItem button component={Link} href="/dashboard/messages">
+                                <ListItemIcon>
+                                    <BookingIcon sx={{ color: 'white' }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Messages" />
+                            </ListItem>
+                            <ListItem button component={Link} href="/dashboard/booking">
+                                <ListItemIcon>
+                                    <GroupIcon sx={{ color: 'white' }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Booking" />
+                            </ListItem>
+                            <ListItem button component={Link} href="/dashboard/logout">
+                                <ListItemIcon>
+                                    <LogoutIcon sx={{ color: 'white' }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Log Out" />
+                            </ListItem>
+                        </List>
+                    </div>
+                </Drawer>
 
-                    {/* mga calendar og bookings */}
-                    <section className="flex">
-                        {/* calendar */}
-                        <div className="bg-white shadow rounded-lg p-6 w-1/2 mr-6">
-                            <h2 className="text-xl font-bold mb-4">Upcoming Bookings</h2>
-                            <div className="mb-4">
-                                <div className="flex items-center">
-                                    <div className="w-3 h-3 bg-green-500 mr-2 rounded"></div>
-                                    <span className="text-sm text-gray-500">Selected Date</span>
+                {/* Button to open Drawer */}
+                <IconButton
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                    onClick={toggleDrawer(true)}
+                    className="absolute top-4 left-4"
+                >
+                    <MenuIcon />
+                </IconButton>
+
+                {/* Main content */}
+                <main className="flex-1 p-6 ml-16">
+                    <header className="flex justify-between items-center mb-6">
+                        <Typography variant="h4" className="font-bold">
+                        Booking
+                        </Typography>
+                       
+                    </header>
+
+                    <section>
+                        <Grid container spacing={4}>
+                            {/* Left Column - Calendar */}
+                            <Grid item xs={12} md={4}>
+                                <div className="bg-white shadow-md rounded-lg p-6">
+                                    <Typography variant="h6" className="font-semibold mb-4">
+                                        Calendar
+                                    </Typography>
+                                    <Calendar
+                                        onChange={handleDateChange}
+                                        value={date}
+                                        className="w-full"
+                                    />
                                 </div>
-                                <div className="flex items-center">
-                                    <div className="w-3 h-3 bg-red-500 mr-2 rounded"></div>
-                                    <span className="text-sm text-gray-500">Booked Schedule</span>
-                                </div>
-                            </div>
-                            
-                            <div className="grid grid-cols-7 gap-2">
-                                
-                                {Array.from({ length: 31 }, (_, i) => (
-                                    <div key={i} className={`w-8 h-8 flex items-center justify-center rounded ${i === 7 ? 'bg-green-500 text-white' : i >= 13 && i <= 15 ? 'bg-red-500 text-white' : 'bg-gray-200'}`}>
-                                        {i + 1}
+                            </Grid>
+
+                            {/* Right Column - Booking Requests */}
+                            <Grid item xs={12} md={8}>
+                                <div className="space-y-6">
+                                    {/* Booking Request 1 */}
+                                    <div className="bg-white shadow-md rounded-lg p-6 flex items-start hover:shadow-lg transition-shadow">
+                                        <Avatar
+                                            alt="Nico Robin"
+                                            src="/robin.png"
+                                            sx={{ width: 56, height: 56 }}
+                                            className="flex-shrink-0"
+                                        />
+                                        <div className="flex-1 ml-6">
+                                            <Typography variant="h6" className="font-semibold">
+                                                Karl M.
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary" className="mt-1">
+                                                June 27, 2024
+                                            </Typography>
+                                            <Typography variant="body1" className="mt-2">
+                                                Looking for a multi-talented performer that can sing and dance for my son’s birthday.
+                                            </Typography>
+                                            <div className="mt-4">
+                                                <Typography variant="body2">
+                                                    <strong>Event:</strong> Birthday
+                                                </Typography>
+                                                <Typography variant="body2">
+                                                    <strong>Location:</strong> Umapad, Mandaue City
+                                                </Typography>
+                                                <Typography variant="body2">
+                                                    <strong>Date and Time:</strong> August 5, 2024, Tuesday (5:00pm-6:00pm)
+                                                </Typography>
+                                                <div className="flex flex-wrap space-x-2 mt-4">
+                                                    <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Singer</span>
+                                                    <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Dancer</span>
+                                                    <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Solo Singer</span>
+                                                    <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Hip hop Dancer</span>
+                                                    <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Male or Female</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center space-x-4 ml-auto">
+                                            <Typography variant="body2" color="textSecondary">
+                                                2 Applied
+                                            </Typography>
+                                            <Button variant="contained" color="primary">
+                                                Apply
+                                            </Button>
+                                        </div>
                                     </div>
-                                ))}
-                            </div>
-                        </div>
 
-                        {/* mga schedule */}
-                        <div className="bg-white shadow rounded-lg p-6 w-1/2">
-                            <h2 className="text-xl font-bold mb-4">Schedule July 9, 2024</h2>
-                            <div className="flex justify-between items-center bg-gray-100 p-4 rounded-lg shadow">
-                                <div>
-                                    <p className="font-semibold">Kon</p>
-                                    <p className="text-gray-500 text-sm">Tayud, Liloan</p>
-                                    <p className="text-gray-500 text-sm">Wedding Event</p>
-                                    <p className="text-gray-500 text-sm">July 9, 2024 @3:00pm-7:00pm</p>
+                                    {/* Booking Request 2 */}
+                                    <div className="bg-white shadow-md rounded-lg p-6 flex items-start hover:shadow-lg transition-shadow">
+                                        <Avatar
+                                            alt="Nami"
+                                            src="/nami.png"
+                                            sx={{ width: 56, height: 56 }}
+                                            className="flex-shrink-0"
+                                        />
+                                        <div className="flex-1 ml-6">
+                                            <Typography variant="h6" className="font-semibold">
+                                                Ninz Garbo
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary" className="mt-1">
+                                                August 1, 2024
+                                            </Typography>
+                                            <Typography variant="body1" className="mt-2">
+                                                I am looking for a Singer and Guitarist for my resto bar. Please apply as soon as possible.
+                                            </Typography>
+                                            <div className="mt-4">
+                                                <Typography variant="body2">
+                                                    <strong>Event:</strong> Resto Bar
+                                                </Typography>
+                                                <Typography variant="body2">
+                                                    <strong>Location:</strong> Umapad, Mandaue City
+                                                </Typography>
+                                                <Typography variant="body2">
+                                                    <strong>Date and Time:</strong> August 3, 2024, Tuesday (5:00pm-6:00pm)
+                                                </Typography>
+                                                <div className="flex flex-wrap space-x-2 mt-4">
+                                                    <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Singer</span>
+                                                    <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Musician</span>
+                                                    <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Solo Singer</span>
+                                                    <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Guitarist</span>
+                                                    <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm">Male or Female</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center space-x-4 ml-auto">
+                                            <Typography variant="body2" color="textSecondary">
+                                                2 Applied
+                                            </Typography>
+                                            <Button variant="contained" color="primary">
+                                                Apply
+                                            </Button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button className="bg-gray-300 text-gray-500 px-4 py-2 rounded-lg" disabled>Mark as Done</button>
-                            </div>
-                        </div>
+                            </Grid>
+                        </Grid>
                     </section>
                 </main>
             </div>
