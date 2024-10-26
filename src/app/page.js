@@ -1,5 +1,3 @@
-"landing"; 
-
 import Head from 'next/head';
 
 export default function LandingPage() {
@@ -21,13 +19,13 @@ export default function LandingPage() {
               <a href="#about" className="hover:text-gray-700">About Us</a>
             </div>
             <div className="flex items-center space-x-4">
-            <a href="/authentication/register" className="hover:text-gray-700">Register</a>
+              <a href="/authentication/register" className="hover:text-gray-700">Register</a>
               <a href="/authentication/login" className="hover:text-gray-700">Login</a>
             </div>
           </div>
         </nav>
 
-        {/*sa booking section */}
+        {/* Booking Section */}
         <section className="bg-gray-800 text-white py-16">
           <div className="container mx-auto text-center">
             <h1 className="text-4xl font-bold mb-6">Book a Talent for your Event!</h1>
@@ -43,7 +41,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/*sa category section */}
+        {/* Category Section */}
         <section className="container mx-auto py-16">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold">Browse By Category</h2>
@@ -67,16 +65,9 @@ export default function LandingPage() {
               <h3 className="text-lg font-semibold">Band</h3>
             </div>
           </div>
-          <div className="flex justify-center mt-8">
-            <ul className="flex space-x-2">
-              <li className="px-3 py-1 border border-gray-300 rounded">1</li>
-              <li className="px-3 py-1 border border-gray-300 rounded">2</li>
-              <li className="px-3 py-1 border border-gray-300 rounded">3</li>
-            </ul>
-          </div>
         </section>
 
-        {/*sa about section */}
+        {/* About Section */}
         <section id="about" className="bg-gray-200 py-16">
           <div className="container mx-auto flex items-center">
             <div className="w-1/2 pr-8">
@@ -91,6 +82,46 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
+        {/* Footer Section */}
+        <footer className="bg-gray-900 text-white py-8">
+          <div className="container mx-auto grid grid-cols-3 gap-8">
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Explore</h3>
+              <ul>
+                <li><a href="#" className="hover:underline">Artists</a></li>
+                <li><a href="#" className="hover:underline">Leadership</a></li>
+                <li><a href="#" className="hover:underline">Our Partners</a></li>
+                <li><a href="#" className="hover:underline">Our Mission</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Contact</h3>
+              <ul>
+                <li>Email: info@talento.com</li>
+                <li>Phone: (123) 456-7890</li>
+                <li>Address: 123 Talent Ave, City</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Help & Support</h3>
+              <ul>
+                <li><a href="#" className="hover:underline">FAQ</a></li>
+                <li><a href="#" className="hover:underline">Customer Support</a></li>
+                <li><a href="#" className="hover:underline">Privacy Policy</a></li>
+                <li><a href="#" className="hover:underline">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-center mt-4">
+            <p>© 2023 Talento. All rights reserved.</p>
+            <div className="flex justify-center space-x-4 mt-2">
+              <a href="#"><img src="/facebook-icon.png" alt="Facebook" className="h-6" /></a>
+              <a href="#"><img src="/twitter-icon.png" alt="Twitter" className="h-6" /></a>
+              <a href="#"><img src="/instagram-icon.png" alt="Instagram" className="h-6" /></a>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );
