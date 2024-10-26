@@ -12,10 +12,10 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'; // Icon for Financial Overview
-import AssessmentIcon from '@mui/icons-material/Assessment'; // Icon for Financial Summary
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'; 
+import AssessmentIcon from '@mui/icons-material/Assessment'; 
 
-// Register necessary Chart.js components
+
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const chartData = {
@@ -87,7 +87,7 @@ export default function FinancialReport() {
                     </Typography>
                 </Paper>
 
-                {/* Chart Section */}
+                {/* Chart  */}
                 <Box sx={{ mt: 4 }}>
                     <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>
                         Monthly Income and Expenses

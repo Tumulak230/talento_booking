@@ -99,7 +99,7 @@ export default function AdminManageBooking() {
                     </div>
                 </Drawer>
 
-                {/* Button to open Drawer */}
+                {/*  Drawer */}
                 <IconButton
                     edge="start"
                     color="inherit"
@@ -118,7 +118,7 @@ export default function AdminManageBooking() {
                         </Typography>
                     </header>
 
-                    {/* Filter by Status */}
+                    {/* Filter dropdown */}
                     <div className="mb-6">
                         <FormControl variant="outlined" fullWidth>
                             <InputLabel>Filter by Status</InputLabel>

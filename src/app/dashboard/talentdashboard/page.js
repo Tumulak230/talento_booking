@@ -28,14 +28,14 @@ export default function TalentDashboard() {
                 <title>TALENTO - Talent Dashboard</title>
             </Head>
             <div className="flex h-screen bg-gray-100">
-                {/* MUI Drawer with Indigo-700 background */}
+                {/* MUI Drawer */}
                 <Drawer
                     open={drawerOpen}
                     onClose={toggleDrawer(false)}
                     PaperProps={{
                         sx: {
-                            backgroundColor: '#4338ca', // Indigo-700 color
-                            color: 'white', // Set text color to white for visibility
+                            backgroundColor: '#4338ca', 
+                            color: 'white', 
                         }
                     }}
                 >
@@ -96,7 +96,7 @@ export default function TalentDashboard() {
                     </div>
                 </Drawer>
 
-                {/* Button to open Drawer */}
+                {/* Drawer */}
                 <IconButton
                     edge="start"
                     color="inherit"
@@ -120,11 +120,11 @@ export default function TalentDashboard() {
 
                     <section>
                         <div className="space-y-6">
-                            {/* Hiring Request 1 */}
+                            {}
                             <div className="bg-white shadow-md rounded-lg p-6 flex items-start hover:shadow-lg transition-shadow">
                                 <Avatar
                                     alt="Nico Robin."
-                                    src="/robin.png" // Replace with the path to Karl's profile picture
+                                    src="/robin.png" 
                                     sx={{ width: 56, height: 56 }}
                                     className="flex-shrink-0"
                                 />

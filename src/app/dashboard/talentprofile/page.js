@@ -36,7 +36,7 @@ export default function Profile() {
     };
 
     const handleSave = () => {
-        // Save the edited profile data
+        
         setEditOpen(false);
     };
 
@@ -350,7 +350,7 @@ export default function Profile() {
                     </section>
                 </main>
 
-                {/* Edit Profile Modal */}
+                {/* Edit Profile  */}
                 <Modal
                     open={editOpen}
                     onClose={() => setEditOpen(false)}

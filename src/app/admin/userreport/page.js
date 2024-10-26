@@ -14,12 +14,12 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-import GroupAddIcon from '@mui/icons-material/GroupAdd'; // Icon for User Registrations
-import StarIcon from '@mui/icons-material/Star'; // Icon for Talent Registrations
-import InsightsIcon from '@mui/icons-material/Insights'; // Icon for Growth Insights
-import RecommendIcon from '@mui/icons-material/Recommend'; // Icon for Recommendations
+import GroupAddIcon from '@mui/icons-material/GroupAdd'; 
+import StarIcon from '@mui/icons-material/Star'; 
+import InsightsIcon from '@mui/icons-material/Insights'; 
+import RecommendIcon from '@mui/icons-material/Recommend'; 
 
-// Register necessary Chart.js components
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler, Title, Tooltip, Legend);
 
 const chartData = {

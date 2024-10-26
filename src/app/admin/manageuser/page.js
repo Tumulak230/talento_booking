@@ -100,7 +100,7 @@ export default function ManageUsers() {
                     </div>
                 </Drawer>
 
-                {/* Button to open Drawer */}
+                {/* Drawer */}
                 <IconButton
                     edge="start"
                     color="inherit"
@@ -125,7 +125,7 @@ export default function ManageUsers() {
                             <div className="bg-white shadow-md rounded-lg p-6 flex items-start hover:shadow-lg transition-shadow">
                                 <Avatar
                                     alt="Nico Robin"
-                                    src="/robin.png" // Replace with the path to the user's profile picture
+                                    src="/robin.png" 
                                     sx={{ width: 56, height: 56 }}
                                     className="flex-shrink-0"
                                 />
@@ -195,7 +195,7 @@ export default function ManageUsers() {
                                 </div>
                             </div>
 
-                            {/* Additional users can be added in a similar format */}
+                            {}
                         </div>
                     </section>
                 </main>

@@ -4,17 +4,16 @@ import Head from 'next/head';
 import { Typography, Container, Paper, Grid, Card, CardContent, Divider, Button, Box } from '@mui/material';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
-import EventNoteIcon from '@mui/icons-material/EventNote'; // Icon for Overview
-import BookIcon from '@mui/icons-material/Book'; // Icon for Total Bookings Summary
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'; // Icon for Completed Events
-import CancelIcon from '@mui/icons-material/Cancel'; // Icon for Cancellations
-import DownloadIcon from '@mui/icons-material/Download'; // Icon for Export Report
+import EventNoteIcon from '@mui/icons-material/EventNote';
+import BookIcon from '@mui/icons-material/Book'; 
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'; 
+import CancelIcon from '@mui/icons-material/Cancel'; 
+import DownloadIcon from '@mui/icons-material/Download'; 
 
-// Register the required components
 Chart.register(...registerables);
 
 export default function BookingsReport() {
-    // Sample data for chart
+    
     const data = {
         labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
         datasets: [
@@ -107,7 +106,7 @@ export default function BookingsReport() {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                startIcon={<DownloadIcon />} // Add icon to button
+                                startIcon={<DownloadIcon />} 
                                 sx={{ mt: 3 }}
                             >
                                 Export Report

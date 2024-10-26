@@ -42,7 +42,7 @@ export default function Messages() {
 
     const handleViewConversation = (client) => {
         setActiveConversation(client);
-        setMessageInput(""); // Clear input when changing conversation
+        setMessageInput(""); 
     };
 
     const handleSendMessage = () => {
@@ -52,7 +52,7 @@ export default function Messages() {
                 text: messageInput,
                 date: new Date().toLocaleString(),
             });
-            setMessageInput(""); // Clear input after sending
+            setMessageInput(""); 
         }
     };
 
@@ -62,7 +62,7 @@ export default function Messages() {
                 <title>TALENTO - Messages</title>
             </Head>
             <div className="flex h-screen bg-gray-100">
-                {/* Drawer for Navigation */}
+                {/* Drawer  */}
                 <Drawer
                     open={drawerOpen}
                     onClose={toggleDrawer(false)}

@@ -29,14 +29,14 @@ export default function Reports() {
                 <title>TALENTO - Reports</title>
             </Head>
             <div className="flex h-screen bg-gray-100">
-                {/* MUI Drawer with Indigo-700 background */}
+                {/* MUI Drawer  */}
                 <Drawer
                     open={drawerOpen}
                     onClose={toggleDrawer(false)}
                     PaperProps={{
                         sx: {
-                            backgroundColor: '#4338ca', // Indigo-700 color
-                            color: 'white', // Set text color to white for visibility
+                            backgroundColor: '#4338ca',
+                            color: 'white', 
                         }
                     }}
                 >
@@ -51,7 +51,7 @@ export default function Reports() {
                                 {/* Logo */}
                                 <Avatar
                                     alt="TALENTO"
-                                    src="/logotalentos.png" // Path to logo
+                                    src="/logotalentos.png" 
                                     sx={{ width: 40, height: 40 }}
                                     className="mr-2"
                                 />
@@ -96,7 +96,7 @@ export default function Reports() {
                     </div>
                 </Drawer>
 
-                {/* Button to open Drawer */}
+                {/* Drawer */}
                 <IconButton
                     edge="start"
                     color="inherit"
@@ -117,7 +117,7 @@ export default function Reports() {
 
                     <section>
                         <div className="space-y-6">
-                            {/* Report Section 1: User Activity */}
+                            {/* User Activity */}
                             <div className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow">
                                 <div className="flex items-center">
                                     <BarChartIcon sx={{ fontSize: 40 }} className="text-blue-500 mr-4" />
@@ -135,7 +135,7 @@ export default function Reports() {
                                 </Link>
                             </div>
 
-                            {/* Report Section 2: Bookings Report */}
+                            {/* book report */}
                             <div className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow">
                                 <div className="flex items-center">
                                     <BookingIcon sx={{ fontSize: 40 }} className="text-green-500 mr-4" />
@@ -153,7 +153,7 @@ export default function Reports() {
                                 </Link>
                             </div>
 
-                            {/* Report Section 3: Financial Report */}
+                            {/* mga report */}
                             <div className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow">
                                 <div className="flex items-center">
                                     <ReportIcon sx={{ fontSize: 40 }} className="text-red-500 mr-4" />
@@ -171,8 +171,7 @@ export default function Reports() {
                                 </Link>
                             </div>
 
-                            {/* Additional Report Sections */}
-                            {/* Add more sections as needed in the same format */}
+                            
                         </div>
                     </section>
                 </main>

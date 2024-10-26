@@ -12,7 +12,7 @@ import BookingIcon from '@mui/icons-material/Event';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import GroupIcon from '@mui/icons-material/Group';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; // Calendar CSS
+import 'react-calendar/dist/Calendar.css'; 
 
 export default function Booking() {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -103,7 +103,7 @@ export default function Booking() {
                     </div>
                 </Drawer>
 
-                {/* Button to open Drawer */}
+                {/* Drawer */}
                 <IconButton
                     edge="start"
                     color="inherit"
@@ -125,7 +125,7 @@ export default function Booking() {
 
                     <section>
                         <Grid container spacing={4}>
-                            {/* Left Column - Calendar */}
+                            {/* Calendar */}
                             <Grid item xs={12} md={4}>
                                 <div className="bg-white shadow-md rounded-lg p-6">
                                     <Typography variant="h6" className="font-semibold mb-4">
@@ -139,7 +139,7 @@ export default function Booking() {
                                 </div>
                             </Grid>
 
-                            {/* Right Column - Booking Requests */}
+                            {/* Booking Requests */}
                             <Grid item xs={12} md={8}>
                                 <div className="space-y-6">
                                     {/* Booking Request 1 */}
